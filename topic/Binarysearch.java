@@ -1,9 +1,7 @@
-import java.io.*;
 import java.util.*;
 
 class Binarysearch 
 {
-
     public static void main(String[] args) 
     {
         int i,j ,temp;
