@@ -1,5 +1,5 @@
 /*
-EX_01: ¥~³¡©I¥sFILE 
+EX_01: å¤–éƒ¨å‘¼å«FILE 
 */
 
 import java.io.*;
