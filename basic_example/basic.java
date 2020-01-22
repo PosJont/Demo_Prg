@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 class basic //•º•[public class __¿…¶W__{}Æ…°Aπw≥]¨Opublic
@@ -6,7 +5,7 @@ class basic //•º•[public class __¿…¶W__{}Æ…°Aπw≥]¨Opublic
     static int NUM=5;
     public static void main(String[] args) 
     {
-		/* ®Ï§W≠±≥o®‚¶Ê¨∞§Ó≥£¨O©T©w™∫µ{¶°∞©¨[*/
+		/* ®Ï§W≠±≥o®‚¶Ê¨∞§Óêm¨O©T©w™∫µ{¶°∞©¨[*/
         // ¶b main() §Ë™k§§¥N¨Oß⁄≠Ã≠n∞ı¶Ê™∫µ{¶°
         int i  = 0,sum=0; 
         float Average=0;
@@ -37,6 +36,6 @@ class basic //•º•[public class __¿…¶W__{}Æ…°Aπw≥]¨Opublic
         Average=(float)(sum/NUM);
         System.out.println("•≠ß°¶®¡Z°G" + Average);
 
-
+        src.close();
     }
 }

@@ -32,6 +32,7 @@ class Condtional
                     temp2=in_p;
                     System.out.printf("number ( %d ~ %d ):",temp1,temp2);
                 }
+                src.close();
         }
     }
 }
