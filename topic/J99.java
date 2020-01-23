@@ -1,12 +1,17 @@
-
+/*
+寫出9 * 9 乘法表
+*/
 class J99{
     public static void main(String[] args) {
-        int i,j;
-        for(i=1 ; i<= 9;i++ )
-        {
-            for(j=1 ; j<=9;j++)
-                System.out.print(i+"*"+j+"="+i*j+" ");
-            System.out.println();    
-        }
+        System.out.println("9*9 乘法表列\n");
+
+     // for(int i=0;i<9;i+=5,System.out.println()) 
+     //{
+        for(int j=1;j<10;j++,System.out.println())
+            for(int k=1;k<10;k++)
+                System.out.printf("%3d*%2d=%2d",k,j,j*k);
+                
+      //}    
+       
     }
 }
