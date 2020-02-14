@@ -1,52 +1,33 @@
 import java.util.*;
 
-class Binarysearch 
-{
-    public static void main(String[] args) 
-    {
-        int i,j ,temp;
-        int aNum[] = new int[10];
-        Scanner src = new Scanner(System.in);
-        for(i = 0 ; i <9 ; i++)
-            aNum[i] =(int)(Math.random()*100)+1;
-        System.out.printf("before sort :");
-        for(int a:aNum)
-            System.out.printf("%6d",a);
-        int n = aNum.length;
-        for ( i = n-2;i>=0;i--)
-            for(j = 0 ;j<=i ; j++)
-                if(aNum[j]>aNum[j+1])
-                {
-                    temp = aNum[j];
-                    aNum[j]=aNum[j+1];
-                    aNum[j+1]=temp;
-                }
-        System.out.println();
-        System.out.println();
-        //---------------------------------------------//
-        System.out.printf("after sort :");
-        for(int a :aNum)
-            System.out.printf("%6d",a);
-        System.out.println();
-        System.out.print("search (only number) :");
-        int sNum = src.nextInt();
-        int num =-1,low = 0,high=aNum.length-1,midnum=0;
-        do
-        {
-            midnum =(low+high)/2;
-            if(aNum[midnum] == sNum)
-               {
-                num = midnum; break;
-               } 
-            else if (aNum[midnum] >sNum)
-               high = midnum -1;
-            else 
-               low =midnum+1;
-        }while(low <= high);
-        if(num ==-1)
-            System.out.println("none '"+sNum+"' this number");
+class BinarySearch{
+    public static void main(String[] args) {
+        int[] arr = {93, 5, 3, 55, 57, 7, 2 ,73, 41, 91};
+        Arrays.sort(arr); 
+        Scanner src =new Scanner(System.in);
+        int search =src.nextInt();
+
+        int left = 0;
+        int right =arr.length;
+        int num=-1;
+        do{
+            int midNum =  arr.length/2;
+            if(arr[midNum]==search)
+            {
+                num = midNum;
+                break;
+            }
+            if(arr[midNum]>search){
+                right = midNum-1;
+            }
+            else
+                left = midNum+1;
+        }while(left<=right);
+
+        if(num==-1)
+            System.out.println("NOT DATA");
         else
-            System.out.println("before search sort '"+sNum+"' is NO."+(num+1)+" number!!");
+            System.out.println(search+">> no."+ num);
 
         src.close();
     }
