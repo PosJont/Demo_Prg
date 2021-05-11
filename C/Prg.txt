@@ -1,0 +1,277 @@
+
+使用輸出轉向來把printf的結果轉到一個檔案中, 其實就算是最簡單的寫檔案方式了. 輸出轉向的工作, 可以由程式碼來完成.
+
+#include < stdio.h >
+#include < stdlib.h >
+
+void main(void)
+{
+	FILE *output; // 用來指向一個輸出的位置
+	output=fopen("test.txt","wt"); // 第1個參數是檔名, 第2個參數是開啟檔案的模式, w代write, t代text
+	fprintf( output, "hello\n");
+}
+其實, C函式庫中已經宣告好3個FILE *的指標, 分別是stdin, stdout, stderr.
+printf("...")事實上是呼叫fprintf( stdout, "....").
+scanf("...")事實上是呼叫fsanf( stdin, "..." ).
+fprintf( stderr, "....")所印在螢幕上的東西不會被輸出轉向所影響.
+
+檔案的儲存方式通常分成兩種. "文字檔"和"二進位檔"
+文字檔中存放的東西都是肉眼可視的英文字母或數字符號等.
+二進位檔是把數值的內容原封不動使用它的二進位方式直接儲存下來
+舉例:
+
+int a=100000
+若用文字檔來存, 存下來的會是"100000"這個字串, 佔7個byte
+若用二進位檔來存, 存下來的是0x186A0的的二進位值, 固定佔4個byte.
+因為int型態就是占4個byte.
+檔案的讀寫方式也分成兩種. 循序讀寫和隨機讀寫. 循序讀寫就是讀/寫檔案是, 就是固定先寫第1個位置, 再寫第2個位置......第n-1, 第n.
+隨機讀寫則可以向陣列一樣, 隨時去讀/寫任一個位置.
+
+第二節:文字檔
+使用文字檔時的兩個主要函式就是fprintf/fscanf.
+它們的用法和printf/scanf幾乎完全一樣, 只差在需要指定它們input/output的來源/目標.
+
+#include < stdio.h >
+#include < stdlib.h >
+
+void main(void)
+{
+	FILE *input;
+	FILE *output;
+	char string[80];
+
+	input=fopen("input.txt","rt");
+	if ( input==NULL )
+	{
+		printf("open file fail!\n");
+		exit(0);
+	}
+	fscanf(input,"%s",string);
+	output=fopen("test.txt","wt"); 
+	fprintf( output, "%s\n",string);
+	fclose(input);
+	fclose(output);
+}
+通常, 在呼叫fclose之前, 檔案的內容不會真正的被寫到磁碟機上. 若要強迫馬上寫入, 可以呼叫 fflush(FILE *)來做到.
+試著trace下面的	, 會發現並不是每做一個fprintf就會有東西被寫到檔案中. 而是呼叫fclose後 才一口氣把所有東西都真正寫到檔案中.
+
+#include < stdio.h >
+#include < stdlib.h >
+
+void main(void)
+{
+	FILE *output;
+	output=fopen("test.txt","wt"); 
+	for ( int i=0; i<10; i++ )
+	{
+		fprintf( output, "%d\n",i);
+	}
+	fclose(output);
+}
+每執行一個fflush就會更新一次檔案的內容.
+
+#include < stdio.h >
+#include < stdlib.h >
+
+void main(void)
+{
+	FILE *output;
+	output=fopen("test.txt","wt"); 
+	for ( int i=0; i<10; i++ )
+	{
+		fprintf( output, "%d\n",i);
+		fflush(output);
+	}
+	fclose(output);
+}
+除了fprintf/fscanf, 文字檔還有fputc/fgetc可以用, 用法和putc/getc幾乎一樣.就不用再多說了.
+
+第三節:二進位檔
+fopen時, 開啟的模式字串中如果第2個字母是b, 那就會開啟一個二進位檔.
+
+#include < stdio.h >
+
+void main(void)
+{
+	FILE *output;
+	int  i=10000;
+	output=fopen("test.bin","wb"); 
+	fwrite( &i, sizeof(int), 1, output );
+	fclose(output);
+}
+讀寫二進位檔要分別用fread/fwrite來做.
+
+#include < stdio.h >
+#include < stdlib.h >
+void main(void)
+{
+	FILE *input;
+	int  i=10000;
+	input=fopen("test.bin","rb"); 
+	if ( input==NULL )
+	{
+		printf("open input file fail!\n");
+		exit(0);
+	}
+	fread( &i, sizeof(int), 1, input );
+	printf("%d\n",i);
+	fclose(input);
+}
+用二進位檔可以很快的讀/寫入一組數列
+
+#include < stdio.h >
+#define N 10
+void main(void)
+{
+	int data[N];	
+	int get[N];
+	int i;
+	FILE *file=fopen("data.bin","wb"); //開啟檔案來寫
+	for ( i=0; i < N; i++ )
+	{
+		data[i]=i;
+	}
+	fwrite(data,sizeof(int),N,file);
+	// fwrite可以一次把數個bytes的資料寫入檔案
+	fclose(file);
+
+	file=fopen("data.bin","rb"); // 開啟檔案來讀
+	fread(get, sizeof(int),N,file);
+	// fread可以一次把數個bytes的資料讀入記憶體中
+	for ( i=0; i < N; i++ )
+	{
+		printf("%d ",get[i]);
+	}
+	printf("\n");
+	fclose(file);
+}
+struct經當會使用在檔案讀寫中. 舉例, 假如現在訂好一個檔案結構用來記錄全班同學的基本資料, 每個同學需要記錄的資料有姓名, 身高, 體重, 年齡. 姓名在20字母以下, 身高體重都用float來記, 年齡用整數來記錄.
+
+#include < stdio.h >
+
+struct Person 
+{
+	char name[20];
+	float height;
+	float weight;
+	int   age;
+};
+
+void main(void)
+{
+	Person p={"Peter", 180.0f, 80.0f, 25};
+	FILE *file=fopen("people.bin","wb");
+	fwrite(&p, sizeof(Person), 1, file);
+	fclose(file);
+}
+如果不使用struct, 那程式寫起來會變成下面的樣子.
+
+#include < stdio.h >
+
+void main(void)
+{
+	char name[20];
+	float height=180.0f;
+	float weight=80.0f;
+	int   age=25;
+
+	FILE *file=fopen("people.bin","wb");
+	fwrite(name, sizeof(char), 20, file);
+	fwrite(&height, sizeof(float), 1, file);
+	fwrite(&weight, sizeof(float), 1, file);
+	fwrite(&age, sizeof(int), 1, file);
+	fclose(file);
+}
+第三節:循序檔的使用
+範例:寫作一個類似dos指令type的讀檔程式
+
+#include <stdio.h>
+#include <stdlib.h>
+void main(int argc, char *argv[])
+{
+	FILE *input;
+	if ( argc < 2 )
+	{
+		printf("missing argument\n");
+		exit(0);
+	}
+	input=fopen(argv[1],"rt");
+	if ( input==NULL )
+	{
+		printf("open %s fail!\n",argv[1]);
+		exit(0);
+	}
+	while( !feof(input) )
+	{
+		putchar( fgetc(input) );
+	}
+}
+下面的檔案是全班50位同學的的考試成績, 試著讀入它, 並算出全班的平均成績. data.txt
+下面是另一種格式的檔案, 同樣是50位同學的成績, 試者讀入它, 並算出全班同學的平均成績. data2.txt
+
+第四節:隨機讀取檔的使用
+範例:寫作一個類似copy的程式.
+
+#include <stdio.h>
+#include <stdlib.h >
+void main(int argc, char *argv[])
+{
+	int filelen;
+	FILE *input,*output;
+	if ( argc < 3 )
+	{
+		printf("Usage:%s source dest\n",argv[0]);
+		exit(0);
+	}
+	// 開啟檔案
+	if( (input=fopen(argv[1],"rb"))==NULL )
+	{
+		printf("open %s fail!\n",argv[2]);
+		exit(0);
+	}
+	if( (output=fopen(argv[2],"wb"))==NULL )
+	{
+		printf("open %s fail!\n",argv[3]);
+		exit(0);
+	}
+	fseek( input, 0, SEEK_END);
+	filelen = ftell( input );
+	fseek( input, 0, SEEK_SET);
+	unsigned char *data=new unsigned char[filelen]; // 配置一塊可以讀整個檔案的空間
+	fread( data, 1, filelen, input ); // 把整個檔案讀進記憶體
+	fwrite( data, 1, filelen, output ); // 把整個檔案寫到另一個檔案中
+	fclose( input );
+	fclose( output );
+}
+fseek是隨機讀取用的函式. fseek( FILE *, location, from_where );
+from_where可以代入
+SEEK_SET把讀寫位置設定成從檔案開頭開始向後算的第location個位置.(所以location要>=0才有意義)
+SEEK_END把讀寫位置設定成從檔案結尾開始向後算的第location個位置.(所以location要<=0才有意義)
+SEEK_CUR把讀寫位置設定成從檔案目前讀取位置開始向後算的第location個位置.(所以location<0會向前移, location>0向後移)
+ftell會傳回目前檔案的讀寫位置.
+所以, 下面的動作可以得知檔案的長度.
+
+fseek( input, 0, SEEK_END); // 先把讀寫位置移到檔尾
+filelen = ftell( input );   // 再傳回檔案目前的讀寫位置
+範例:有一個檔案(points.bin)用整數記錄全班50位同學的成績, 寫一程式讓使用者查尋學生成績
+
+#include < iostream.h >
+#include < stdio.h >
+
+void main(void)
+{
+	int num;
+	int data;
+	FILE *file=fopen("points.bin","rb");
+	do
+	{
+		printf("num=");
+		scanf("%d",&num);
+		if ( num>=50 || num<0 )
+			break;
+		fseek(file, num*sizeof(int), SEEK_SET);
+		fread(&data, sizeof(int), 1, file);
+		printf("Student(%d)=%d\n",num,data);
+	} while(1);
+	fclose(file);
+}
