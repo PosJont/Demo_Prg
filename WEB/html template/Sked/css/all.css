@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/* global */
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+
+.input__format{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 10px;
+}
+.title__h3{
+    margin: 5px;
+}
+.search__body{
+    margin:10px 0;
+    border: 1px solid  #ddd;
+
+}

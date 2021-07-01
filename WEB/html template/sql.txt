@@ -1,0 +1,78 @@
+
+--RPT009A
+select g.line_name, f.mac_name, b.wrk_code, b.pro_qty, sum(d.ok_qty) as ok_qty, sum(d.ng_qty) as ng_qty,
+	CONVERT(DATETIME,  c.ins_date + ' ' + c.ins_time) as start_time,
+	CONVERT(DATETIME,  c.end_date + ' ' + c.end_time) as end_time,
+	DATEDIFF(second, CONVERT(DATETIME,  c.ins_date + ' ' + c.ins_time), CONVERT(DATETIME,  c.end_date + ' ' + c.end_time))/ 3600.0 as total_time
+from MET01_0000 a
+inner join MET03_0000 b on a.mo_code = b.mo_code
+left join MED02_0000 c on a.mo_code = c.mo_code and c.wrk_code = b.wrk_code                        
+left join MEM01_0000 d on d.mo_code = a.mo_code and d.work_code = b.work_code
+left join MEB15_0000 f on f.mac_code = c.mac_code
+left join MEB12_0000 g on g.line_code = a.plan_line_code
+where c.end_date <> ''   AND b.wrk_code='DDD-02-01'
+GROUP BY g.line_name, f.mac_name, b.wrk_code, b.pro_qty, c.ins_date, c.ins_time, c.end_date, c.end_time
+
+
+
+select 
+    case when 
+    (
+		CONVERT(DATETIME,  e.date_s + ' ' + e.time_s) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+		and
+		CONVERT(DATETIME,  e.date_e + ' ' + e.time_e) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+    )    then DATEDIFF(second, CONVERT(DATETIME,  e.date_s + ' ' + e.time_s), CONVERT(DATETIME,  e.date_e + ' ' + e.time_e))/ 3600.0 
+
+    when CONVERT(DATETIME,  e.date_s + ' ' + e.time_s) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+    then DATEDIFF(second, CONVERT(DATETIME,  e.date_s + ' ' + e.time_s), CONVERT(DATETIME,  d.end_date + ' ' + d.end_time))/ 3600.0 
+
+    when CONVERT(DATETIME,  e.date_e + ' ' + e.time_e) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+    then DATEDIFF(second, CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time), CONVERT(DATETIME,  e.date_e + ' ' + e.time_e))/ 3600.0 
+
+    when CONVERT(DATETIME,  e.date_s + ' ' + e.time_s) < CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  e.date_e + ' ' + e.time_e) > CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+    then DATEDIFF(second, CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time), CONVERT(DATETIME,  d.end_date + ' ' + d.end_time))/ 3600.0
+	
+    else 0 end as stop_time     from MED02_0000 d 
+    left join MED04_0000 e on d.wrk_code = e.wrk_code 
+    and 
+    (
+		(
+		CONVERT(DATETIME,  e.date_s + ' ' + e.time_s) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+		and
+		CONVERT(DATETIME,  e.date_e + ' ' + e.time_e) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+		)    or
+		CONVERT(DATETIME,  e.date_s + ' ' + e.time_s) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+		or
+		CONVERT(DATETIME,  e.date_e + ' ' + e.time_e) BETWEEN CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+		or
+		CONVERT(DATETIME,  e.date_s + ' ' + e.time_s) < CONVERT(DATETIME,  d.ins_date + ' ' + d.ins_time) and CONVERT(DATETIME,  e.date_e + ' ' + e.time_e) > CONVERT(DATETIME,  d.end_date + ' ' + d.end_time)
+    )
+    where d.end_date <> ''  AND d.wrk_code='DDD-02-01'
+
+
+--RTR010B
+select 
+		sum(
+		case when CONVERT(DATETIME, date_s+' '+time_s) < CONVERT(DATETIME, date_e+' '+time_e)
+		then DATEDIFF(minute, CONVERT(DATETIME, date_s+' '+time_s), CONVERT(DATETIME, date_e+' '+time_e)) / 60.0 else 0 end) as stop_time
+	from MED04_0000
+	where  MED04_0000.mac_code  ='OEP-H01'
+	---where  
+
+
+select temp.line_name, temp.work_name, temp.pro_name, temp.pro_code, temp.mac_code, sum(temp.std_time) as std_time,sum(temp.work_time) as work_time, sum(temp.ok_qty) as ok_qty, sum(temp.ng_qty) as ng_qty
+                        from
+                        (
+                        SELECT  c.line_name, d.work_name, e.pro_name, e.pro_code, b.mac_code, (b.std_time/3600) * CEILING(DATEDIFF(minute, a.work_time_s, a.work_time_e) / (60*24.0)) as std_time, 
+                        a.mem01_0000,
+                        case when a.work_time_s < a.work_time_e then 
+                        DATEDIFF(minute, a.work_time_s, a.work_time_e) / 60.0 else '0' end as work_time, a.ok_qty, a.ng_qty
+                        from MET01_0000 x
+                        left join mem01_0000 a on a.mo_code = x.mo_code
+                        left join MEB15_0000 b on a.mac_code = b.mac_code
+                        left join MEB12_0000 c on b.line_code = c.line_code
+                        left join MEB30_0000 d on a.work_code = d.work_code
+                        left join MEB20_0000 e on x.pro_code = e.pro_code
+                        where a.work_time_e <> ''  AND b.mac_code  ='OEP-H01'  AND  a.mo_code='DDD-02'
+		) temp
+	GROUP BY temp.line_name, temp.work_name, temp.pro_name, temp.pro_code, temp.mac_code

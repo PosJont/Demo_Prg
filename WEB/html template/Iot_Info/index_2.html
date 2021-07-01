@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <!-- jquery v3.6.0 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/extensions/custom-view/bootstrap-table-custom-view.js">
+    </script>
+    <script src="js/all.js"></script>
+</head>
+
+<body>
+    <table id="table" 
+        data-show-custom-view="true" 
+        data-custom-view="customViewFormatter"
+        data-show-custom-view-button="false">
+        <thead>
+            <tr>
+                <th data-field="name">Name</th>
+                <th data-field="follower">Follower</th>
+                <th data-field="following">Following</th>
+                <th data-field="snippets">Snippets</th>
+                <th data-field="stutus">stutus</th>
+            </tr>
+        </thead>
+    </table>
+
+    <template id="profileTemplate">
+        <div class="col-4 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 col-md-6">
+                            <h3 class="mb-0 text-truncated">%NAME%</h3>
+                            <!-- <p class="lead">Web / UI Designer</p> -->
+                            <div class="card__item">
+                                <div class="card__title">磁座型號</div>
+                                <div class="card__desc">10</div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__title">報修保養</div>
+                                <div class="card__desc">無</div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__title">保養人員</div>
+                                <div class="card__desc">無</div>
+                            </div>
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-6 text-center">
+                            <img src="%IMAGE%" alt="" class="mx-auto img-fluid" style="height: 120px; ">
+                            <br>
+                            <div class="card__status d-inline card__status--danger">狀態...</div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <h3 class="mb-0">%FOLLOWER%</h3>
+                            <small>實際妥善率</small>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <h3 class="mb-0">%FOLLOWING%</h3>
+                            <small>運轉工時</small>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <h3 class="mb-0">%SNIPPETS%</h3>
+                            <small>停機工時</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body>
+
+</html>

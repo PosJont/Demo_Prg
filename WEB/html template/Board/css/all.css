@@ -1,0 +1,219 @@
+@charset "UTF-8";
+
+/* global */
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 1.6em;
+    height: 98vh;
+    background-color: #000;
+}
+.card__body{
+    margin-top: 10px;
+}
+
+.card{
+    display: inline-block;
+    background-color: #555;
+}
+.card__ctr{
+    padding: 5px;
+    margin: 0 5px;
+    /* height: 80px; */
+}
+
+
+
+/* title style width */
+.card__main__Ctr{
+    width: 12%;
+}
+.card__sub__Ctr{
+    width: 10%;
+}
+
+.card__date__Ctr{
+    width: 13%;
+    padding-left:15px;
+}
+
+.card__date2__Ctr{
+    width: 24.666%;
+}
+
+.card__date2__Ctr > div{
+    padding:0 10px;
+}
+
+/* title style group  */
+.card__title__h4{
+    font-size: 0.8em;
+    color: #ddd;
+
+}
+.card__title,.card__desc{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.card__title--style {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.date,.timer,.qty,.id,.qty_all{
+    display: inline-block;
+}
+.card__title--pro_qty,.card__title--pro_id{
+    color:#fff;
+}
+
+/* card style color */
+.card__desc--mo_code{
+    color:rgb(0, 235, 90);
+}
+.card__desc--pro_qty{
+    color:rgb(235, 212, 0);
+}
+.card__desc--datetime{
+    color: rgb(54, 158, 255);
+}
+.card__desc--math{
+    color:rgb(0, 235, 90);
+}
+.card__desc--bmath{
+    color:rgb(235, 55, 0);
+}
+
+.card__desc--money{
+    color:rgb(0, 235, 90);
+}
+
+
+/* color  style */
+.card__color__style div{
+    display: inline-flex;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+.card__color__style .yello{
+    background: yellow;
+}
+.card__color__style .red{
+    background: red;
+}
+.card__color__style .green{   
+    background: green;
+}
+
+
+
+/* tools */
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+@media (max-width: 2250px) {
+    .card__main__Ctr{
+        width: 14%;
+    }
+    .card__sub__Ctr{
+        width:8.6666%;
+    }
+
+    .card__date__Ctr{
+        width: 14%;
+        padding-left:15px;
+    }
+    .card__date2__Ctr{
+        width: 27.666%;
+    }
+
+}
+
+
+
+@media (max-width: 1980px) {
+    .card__main__Ctr{
+        width: 12%;
+    }
+    .card__sub__Ctr{
+        width: 9%;
+    }
+
+    .card__date__Ctr{
+        width: 16.555%;
+        padding-left:15px;
+    }
+    .card__date2__Ctr{
+        width: 33%;
+    }
+
+}
+
+
+@media (max-width: 1897px) {
+    .card__sub__Ctr{
+        width: 9%;
+    }
+
+    .card__date__Ctr{
+        width: 17.555%;
+        padding-left:15px;
+    }
+    .card__date2__Ctr{
+        width: 34%;
+    }
+
+}
+
+
+@media (max-width: 1785px) {
+    .card__date__Ctr{
+        width: 18.555%;
+        padding-left:15px;
+    }
+    .card__date2__Ctr{
+        width: 36%;
+    }
+
+}
+
+@media (max-width: 1690px) {
+    body{
+        width:105vw;
+    }
+    .card__main__Ctr{
+        width: 13%;
+    }
+    .card__sub__Ctr{
+        width: 10%;
+    }
+
+    .card__date__Ctr{
+        width: 19.555%;
+        padding-left:15px;
+    }
+    .card__date2__Ctr{
+        width: 39%;
+    }
+
+}
+
+@media (max-width: 1240px) {
+    body{
+        width:200vw;
+    }
+}

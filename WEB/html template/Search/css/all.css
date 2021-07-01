@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* global */
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    list-style: none;
+    text-shadow: none;
+    font-family: Arial, Helvetica, sans-serif,"Font Awesome 5 Free";
+}
+body{
+    display: grid;
+    height: 100vh;
+    font-size: 1.3em;
+    background: #111;
+    color: #fff;
+}
+input[type="button"]{
+    padding: 10px;
+}
+input{
+    border-radius: 5px;
+}
+.container{
+    position: relative;
+    justify-self: center;
+    align-self: center;
+}
+.input__format{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 10px;
+}
+.title__h3{
+    margin: 5px;
+}
+.search__body{
+    margin:10px 0;
+    padding: 10px 5px;
+    border: 1px solid  #ddd;
+
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="view search__body d-flex flex-row bd-highlight">
+            <div class="input__format">
+                <div class="title__h3">使用機台</div>
+                <input type="text" name="mac_code" id="mac_code">
+                <div class="title__h3">磁座型號</div>
+                <input type="text" name="model_code" id="model_code">
+            </div>
+            <div class="input__format">
+                <div class="title__h3">長度</div>
+                <input type="text" name="legth_qty" id="legth_qty">
+                <div class="title__h3">寬度</div>
+                <input type="text" name="width_qty" id="width_qty">
+            </div>
+            <div class="input__format">
+                <div class="title__h3">適用規格1</div>
+                <input type="text" name="suit_1" id="suit_1">
+                <div class="title__h3">適用規格2</div>
+                <input type="text" name="suit_2" id="suit_2">
+                <div class="title__h3">適用規格3</div>
+                <input type="text" name="suit_3" id="suit_3">
+            </div>
+            <div class="input__format">
+                <div class="title__h3">適用規格4</div>
+                <input type="text" name="suit_4" id="suit_4">
+                <div class="title__h3">適用規格5</div>
+                <input type="text" name="suit_5" id="suit_5">
+                <div class="title__h3">適用規格6</div>
+                <input type="text" name="suit_6" id="suit_6">
+            </div>
+            <div id="toolbar">
+                <button id="Inser_btn" class="btn btn-secondary" >新增資料</button>
+                <button id="Update_btn" class="btn btn-secondary hidden" >更新資料</button>
+            </div>
+        </div>
+        <div class="view view__body">
+            <div class="container table_body">
+                <table id="table" class="table-striped table-dark" data-toggle="table" data-url="json/data1.json"
+                    data-height="500">
+                    <thead>
+                        <tr>
+                            <th data-field="operate" data-align="center" data-width="100"
+                                data-formatter="operateFormatter" data-events="operateEvents">功能</th>
+                            <th data-field="use" data-sortable="true" data-align="center" data-width="200">狀態</th>
+                            <th data-field="model" data-sortable="true" data-align="center" data-width="100">磁座型號</th>
+                            <th data-field="name" data-sortable="true" data-align="center" data-width="200">使用機台</th>
+                            <th data-field="legth" data-sortable="true" data-align="center" data-width="100">長度</th>
+                            <th data-field="width" data-sortable="true" data-align="center" data-width="200">寬度</th>
+                            <th data-field="suit_1" data-sortable="true" data-align="center" data-width="100">適用規格1</th>
+                            <th data-field="suit_2" data-sortable="true" data-align="center" data-width="100">適用規格2</th>
+                            <th data-field="suit_3" data-sortable="true" data-align="center" data-width="100">適用規格3</th>
+                            <th data-field="suit_4" data-sortable="true" data-align="center" data-width="100">適用規格4</th>
+                            <th data-field="suit_5" data-sortable="true" data-align="center" data-width="100">適用規格5</th>
+                            <th data-field="suit_6" data-sortable="true" data-align="center" data-width="100">適用規格6</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" crossorigin="anonymous">    </script>
+    <script src="js/all.js"></script>
+</body>
+</html>

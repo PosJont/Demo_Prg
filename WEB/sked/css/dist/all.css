@@ -1,0 +1,25 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.bd-footer {
+  font-size: 0.875rem;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+
+.bd-footer a {
+  font-weight: 600;
+  color: #495057;
+}
+
+.bd-footer a:focus, .bd-footer a:hover {
+  color: #007bff;
+}
+
+.bd-footer p {
+  margin-bottom: 0;
+}
