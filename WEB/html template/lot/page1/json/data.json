@@ -1,0 +1,210 @@
+{
+    "rows": [
+      {
+        "mac_code":"熱處理#2" ,
+        "type": "0",
+        "repair": "示警異常",
+        "staff": "廖夆淇",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "3.png",
+        "stutus": "danger"
+      },
+      {
+        "mac_code":"裁切機#1",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "3.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"裁切機#2",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "3.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"大曲機#1",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "3.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"大曲機#2",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "3.png",
+        "stutus": "danger"
+      },
+      {
+        "mac_code":"大曲機#3",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "3.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌基磨#1",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "2.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌基磨#2",
+        "type": "0",
+        "repair": "大保養",
+        "staff": "王曉明",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "4",
+        "image": "2.png",
+        "stutus": "danger"
+      },
+      {
+        "mac_code":"軌基磨#3",
+        "type": "0",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "2.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌成磨#1",
+        "type": "2",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "1.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌成磨#2",
+        "type": "5",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "1.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌成磨#3",
+        "type": "5",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "4",
+        "image": "1.png",
+        "stutus": "danger"
+      },
+      {
+        "mac_code":"軌成磨#4",
+        "type": "7",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "1.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌成磨#5",
+        "type": "3",
+        "repair": "無",
+        "staff": "無",
+        "rate": "100 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "1.png",
+        "stutus": "success"
+      },
+      {
+        "mac_code":"軌成磨#6",
+        "type": "4",
+        "repair": "小保養",
+        "staff": "楊文",
+        "rate": "97.6 %",
+        "work_timer": "168",
+        "stop_timer": "4",
+        "image": "1.png",
+        "stutus": "danger"
+      },
+      {
+        "mac_code":"軌成磨#7",
+        "type": "8",
+        "repair": "無",
+        "staff": "無",
+        "rate": "97.6 %",
+        "work_timer": "168",
+        "stop_timer": "4",
+        "image": "1.png",
+        "stutus": "warning"
+      },{
+        "mac_code":"軌成磨#8",
+        "type": "8",
+        "repair": "無",
+        "staff": "無",
+        "rate": "97.6 %",
+        "work_timer": "168",
+        "stop_timer": "4",
+        "image": "1.png",
+        "stutus": "warning"
+      },{
+        "mac_code":"軌成磨#9",
+        "type": "11",
+        "repair": "Z軸震刀",
+        "staff": "陳漢典",
+        "rate": "97.6 %",
+        "work_timer": "168",
+        "stop_timer": "4",
+        "image": "1.png",
+        "stutus": "danger"
+      },{
+        "mac_code":"軌成磨#10",
+        "type": "6",
+        "repair": "無",
+        "staff": "無",
+        "rate": "97.6 %",
+        "work_timer": "168",
+        "stop_timer": "0",
+        "image": "1.png",
+        "stutus": "success"
+      }
+    ]
+  }

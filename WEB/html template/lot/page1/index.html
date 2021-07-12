@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <!-- jquery v3.6.0 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/extensions/custom-view/bootstrap-table-custom-view.js">
+    </script>
+    <script src="./js/all.js"></script>
+</head>
+
+<body>
+    <table id="table" 
+    data-toggle="table"
+    data-url="./json/data.json"
+    data-show-custom-view="true" 
+    data-custom-view="customViewFormatter"
+    data-show-custom-view-button="false"
+    >
+        <thead>
+            <tr>
+                <th data-field="mac_code">機台名稱</th>
+                <th data-field="type">磁座型號</th>
+                <th data-field="repair">報修保養</th>
+                <th data-field="staff">保養人員</th>
+                <th data-field="rate">實際妥善率</th>
+                <th data-field="work_timer">運轉工時</th>
+                <th data-field="stop_timer">停機工時</th>
+                <th data-field="image">image</th>
+                <th data-field="stutus">狀態</th>
+            </tr>
+        </thead>
+    </table>
+
+    <template id="profileTemplate">
+        <div class="col-2 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-5 col-md-6 text-center">
+                            <div class="mb-0 text-truncated card__status card__status--%STUTUS%">%MAC_CODE%</div>
+                            <div class="card__img">
+                                <img src="img/%IMAGE%" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-7 col-md-6 sm-table">
+                            <!-- <p class="lead">Web / UI Designer</p> -->
+                            <div class="card__item">
+                                <div class="card__title">磁座型號</div>
+                                <div class="card__desc">%TYPE%</div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__title">報修保養</div>
+                                <div class="card__desc">%REPAIR%</div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__title">保養人員</div>
+                                <div class="card__desc">%STAFF%</div>
+                            </div>
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                            <h3 class="mb-0">%RATE%</h3>
+                            <small>實際妥善率</small>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                            <h3 class="mb-0">%WORK_TIMER%</h3>
+                            <small>運轉工時</small>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                            <h3 class="mb-0">%STOP_TIMER%</h3>
+                            <small>停機工時</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body>
+
+</html>

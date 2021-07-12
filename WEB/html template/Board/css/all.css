@@ -12,6 +12,11 @@ body{
     height: 98vh;
     background-color: #000;
 }
+.context__body{
+    width: 100vw;
+    height: auto;
+    display: grid;
+}
 .card__body{
     margin-top: 10px;
 }

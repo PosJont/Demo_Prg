@@ -1,0 +1,143 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1;
+  font-size: 1.2em;
+  background-color: #111;
+  color: #fff;
+}
+
+.alert {
+  margin-top: 0.7em;
+}
+
+.infor {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.3em;
+}
+
+.alert__card__body div {
+  display: inline-block;
+}
+
+.table__item {
+  font-size: 1.35em;
+  padding: 10px 20px;
+}
+.table__item .tbody {
+  height: 60%;
+  padding: 10px 20px;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+.table__item .trows {
+  height: 40%;
+  padding: 10px 20px;
+  padding-top: 4px;
+  text-align: center;
+  background-color: #3c3c3c;
+}
+
+.left_body {
+  padding: 0 10px;
+}
+
+.img__body {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.col-cust-1 {
+  position: relative;
+}
+.col-cust-1 .qty {
+  position: absolute;
+  right: 10px;
+}
+
+/* tools */
+.d-inline {
+  display: inline-block;
+}
+
+.card__status {
+  padding: 5px 145px;
+  border-radius: 20px;
+}
+
+.card__status--success {
+  background: #51c256 !important;
+  color: #fff;
+}
+
+.card__status--danger {
+  background: #d83a2c !important;
+  color: #fff;
+}
+
+.card__status--warning {
+  background: #e4e153 !important;
+  color: #111;
+}
+
+.alert__card__body--dark {
+  background-color: #3c3c3c;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert.h3__title {
+  font-size: 1.3em;
+}
+
+.alert__body {
+  box-shadow: 0 2px 6px -1px #888;
+  background: #666;
+  height: 80vh;
+}
+
+.center__d-flex {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-cust-1 {
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+
+.name {
+  line-height: 1;
+  width: 80%;
+}
+
+@media screen and (max-width: 1920px) {
+  .col-cust-1 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .col-cust-1 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media screen and (max-width: 976px) {
+  .col-cust-1 {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+}

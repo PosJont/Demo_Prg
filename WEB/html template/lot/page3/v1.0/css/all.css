@@ -1,0 +1,46 @@
+@charset  "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    line-height: 1;
+    font-size: 1.2em;
+    height: 100vh;
+    background:#3c3c3c;
+}
+.chart__body>div{
+    justify-content: center;
+}
+.card__area{
+    width: 870px;
+    margin:10px;
+    padding: 10px  20px;
+    border: 1px solid #111  ;
+    background: #888;
+    border-radius: 10px;
+    }
+.chart__item{   
+}
+/* tools */
+.d-inline{
+    display: inline-block;
+}
+.card__status{
+    padding: 5px 145px;
+    border-radius: 20px;
+}
+.card__status--success{
+    background: rgb(81, 194, 86);
+    color: #fff;
+}
+.card__status--danger{
+    background: rgb(216, 58, 44);
+    color: #fff;
+}
+.card__status--warning{
+    background: rgb(228, 225, 83);
+    color: #111;
+}
