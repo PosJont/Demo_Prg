@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Users\\LeomonRD\\Desktop\\GITHUB\\Demo_Prg\\C#\\Linq\\Linq.csproj": {}
+    "E:\\Users\\LeomonRD\\Desktop\\BAK\\GITHUB\\GIT_Ctr\\C#\\Linq\\Linq.csproj": {}
   },
   "projects": {
-    "E:\\Users\\LeomonRD\\Desktop\\GITHUB\\Demo_Prg\\C#\\Linq\\Linq.csproj": {
+    "E:\\Users\\LeomonRD\\Desktop\\BAK\\GITHUB\\GIT_Ctr\\C#\\Linq\\Linq.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Users\\LeomonRD\\Desktop\\GITHUB\\Demo_Prg\\C#\\Linq\\Linq.csproj",
+        "projectUniqueName": "E:\\Users\\LeomonRD\\Desktop\\BAK\\GITHUB\\GIT_Ctr\\C#\\Linq\\Linq.csproj",
         "projectName": "Linq",
-        "projectPath": "E:\\Users\\LeomonRD\\Desktop\\GITHUB\\Demo_Prg\\C#\\Linq\\Linq.csproj",
+        "projectPath": "E:\\Users\\LeomonRD\\Desktop\\BAK\\GITHUB\\GIT_Ctr\\C#\\Linq\\Linq.csproj",
         "packagesPath": "C:\\Users\\JCont\\.nuget\\packages\\",
-        "outputPath": "E:\\Users\\LeomonRD\\Desktop\\GITHUB\\Demo_Prg\\C#\\Linq\\obj\\",
+        "outputPath": "E:\\Users\\LeomonRD\\Desktop\\BAK\\GITHUB\\GIT_Ctr\\C#\\Linq\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\JCont\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -80,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

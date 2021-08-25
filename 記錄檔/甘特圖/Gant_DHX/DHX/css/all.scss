@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+.widget{
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    grid-template-rows: 400px 200px;
+}
+#gantt_block{
+    grid-column: 1 / 3;
+    grid-row: 1;
+    height: 380px;
+}
+
+.workload_users{
+    grid-column: 1;
+    grid-row: 2;
+}
+.workload_jobs{
+    grid-column: 2;
+    grid-row: 2;
+    overflow: hidden;
+}
+
+.gantt_tree_icon.gantt_close{
+    // background-image: url("https://img.icons8.com/material-outlined/12/000000/less-than.png");
+    background-image: url("https://img.icons8.com/ios-glyphs/12/000000/minus-math.png");
+}
+.gantt_tree_icon.gantt_open{
+    // background-image: url("https://img.icons8.com/material-outlined/12/000000/more-than.png");
+    background-image: url("https://img.icons8.com/ios-glyphs/12/000000/plus-math.png");
+}

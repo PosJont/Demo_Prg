@@ -5,12 +5,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* Tool */
-.font-h3{
-    font-size: 50px;
-    text-align: center;
+body{
+    background-color: #aaa;
+    color: #444;
 }
-
 /* other */
 .container{
     position: relative;
@@ -23,11 +21,41 @@
     position: absolute;
 }
 .card__area{
-    width: 600px;
-    /* padding-left: ; */
+    width: 800px;
+    padding: 10px;
+    margin: 10px 0px;
+    background: #eee;    
 }
 
 .bar{
     top: 0;
     left: 50%;
+}
+
+.container__d-flex{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Tools */
+.font-h3{
+    font-size: 50px;
+    text-align: center;
+}
+
+.d-grid{
+    display: grid;
+}
+.p-fixed{
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+}
+.seting__body{
+    background: #111;
+    color:#fff;
+    padding :10px 20px;
+    margin: 10px;
 }

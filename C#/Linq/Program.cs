@@ -25,6 +25,7 @@ namespace Linq
         static void Main(string[] args)
         {
             Program pr = new Program();
+            Week week = new Week();
             // pr.LinDBEaxmple();
             pr.linqArrayExmple();
             // Console.WriteLine("Hello World!");

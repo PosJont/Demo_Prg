@@ -1,0 +1,8 @@
+[
+    {"id": "1", "name": "San Francisco", "tzOffset": 420},
+    {"id": "2", "name": "Sydney", "tzOffset": -600},
+    {"id": "3", "name": "New York", "tzOffset": 240},
+    {"id": "4", "name": "London", "tzOffset": -160},
+    {"id": "5", "name": "Copenhagen", "tzOffset": -120},
+    {"id": "6", "name": "Berlin", "tzOffset": -120}
+]

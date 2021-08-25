@@ -1,0 +1,11 @@
+.sked-tape__indicator,
+.sked-tape__indicator::after,
+.sked-tape__indicator::before {
+  border: none;
+}
+
+.sked-tape * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*# sourceMappingURL=all.css.map */

@@ -1,0 +1,9 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*# sourceMappingURL=all.css.map */

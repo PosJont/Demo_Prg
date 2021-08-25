@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+
+.sked-tape__indicator,
+.sked-tape__indicator::after,
+.sked-tape__indicator::before{
+    border: none;
+}
+
+.sked-tape *{
+    box-sizing: border-box;
+}

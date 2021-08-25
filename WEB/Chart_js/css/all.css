@@ -1,13 +1,57 @@
-@charset "UTF-8";
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-/* #barChart{
-    width: 100px;
-    height: 350px;
-} */
-.barChart__body{
-    width: 100%;
+
+.barChart__body {
+  width: 100%;
 }
+
+.width-50 {
+  width: 50%;
+}
+
+.width-60 {
+  width: 60%;
+}
+
+.width-70 {
+  width: 70%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.width-90 {
+  width: 90%;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.conter {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.wrap {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, 100px);
+  height: 100px;
+}
+
+.wrap .border {
+  padding: 10px;
+  border: 1px solid #111;
+}
+/*# sourceMappingURL=all.css.map */
